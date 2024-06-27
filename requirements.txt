@@ -1,0 +1,5 @@
+Flask==2.0.3
+openai
+google-cloud-speech
+google-cloud-texttospeech
+requests
