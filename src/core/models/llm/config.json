@@ -1,0 +1,11 @@
+{
+  "groq": {
+    "model": "llama3-70b-8192",
+    "temperature": null,
+    "max_tokens": null,
+    "top_p": null,
+    "stream": null,
+    "stop": null,
+    "seed": null
+  }
+}

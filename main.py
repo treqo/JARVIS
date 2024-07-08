@@ -12,7 +12,7 @@ import numpy as np
 import webrtcvad
 
 wake_words = ['hey jarvis', 'jarvis']
-CONVERSATION_TIMEOUT = 10  # seconds of silence before going back to inactive mode
+CONVERSATION_TIMEOUT = 10
 SAMPLE_RATE = 16000
 CHUNK_DURATION_MS = 30  # supports 10, 20 and 30 (ms)
 CHUNK_SIZE = int(SAMPLE_RATE * CHUNK_DURATION_MS / 1000)
@@ -63,7 +63,7 @@ def groq_prompt(prompt):
 def speak(text):
     global is_speaking, last_interaction_time
     is_speaking = True
-    last_interaction_time = time.time()  # Update last interaction time when starting to speak
+    last_interaction_time = time.time()
     player_stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)
     stream_start = False
 
@@ -84,8 +84,8 @@ def speak(text):
     player_stream.stop_stream()
     player_stream.close()
     is_speaking = False
-    last_interaction_time = time.time()  # Update last interaction time after finishing speaking
-    time.sleep(0.5)  # Short pause after speaking
+    last_interaction_time = time.time()
+    time.sleep(0.5)
 
 def check_conversation_timeout():
     global is_active
@@ -116,7 +116,7 @@ def process_audio(audio):
                 f.write(audio.get_wav_data())
             
             prompt_text = wav_to_text(prompt_audio_path)
-            print(f"Heard: {prompt_text}")  # Debug print
+            print(f"Heard: {prompt_text}")
 
             if not is_active:
                 if any(wake_word.lower() in prompt_text.lower() for wake_word in wake_words):
@@ -155,7 +155,7 @@ def listen_for_speech():
             else:
                 silence_chunks += 1
 
-            if len(audio_buffer) > 0 and (silence_chunks > 10 or len(audio_buffer) > 300):  # About 3 seconds of silence or 9 seconds of audio
+            if len(audio_buffer) > 0 and (silence_chunks > 10 or len(audio_buffer) > 300):
                 audio_data = b''.join(audio_buffer)
                 audio = sr.AudioData(audio_data, SAMPLE_RATE, 2)
                 if not is_speaking:

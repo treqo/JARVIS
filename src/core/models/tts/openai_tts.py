@@ -3,8 +3,8 @@ import os
 import pyaudio
 
 class OpenAITTS:
-    def __init__(self):
-        self.client = OpenAI(api_key=os.getenv('OPENAI_API_SECRET_KEY'))
+    def __init__(self, api_key):
+        self.client = OpenAI(api_key=api_key)
 
     def speak(self, text):
         player_stream = pyaudio.PyAudio().open(format=pyaudio.paInt16, channels=1, rate=24000, output=True)

@@ -2,8 +2,8 @@ from groq import Groq
 import os
 
 class GroqLLM:
-    def __init__(self):
-        self.client = Groq(api_key=os.getenv('GROQ_API_SECRET_KEY'))
+    def __init__(self, api_key):
+        self.client = Groq(api_key=api_key)
         self.convo = [{'role': 'system', 'content': 'You are an AI voice assistant named Jarvis. Generate the most useful and factual response possible, carefully considering all previous generated text in your response before adding new tokens to the response. Make your response clear and concise, avoiding any verbosity.'}]
 
     def prompt(self, text):

@@ -1,5 +1,6 @@
 # TODO
 
+- README.md
 - add support for multiple tts, stt and llm models
 - update requirements.txt
 - clean up core files
@@ -11,3 +12,5 @@
   - Feel like Iron Man
 
 - update webcam.py
+
+- streaming for groq
