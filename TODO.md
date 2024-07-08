@@ -6,7 +6,8 @@
 - once fast working model
 
   - Integrate computer vision
-  - Allow for subprocesses action like displaying web pages
+  - Allow for subprocesses action
+  - Custom UI holograms / projections
   - Feel like Iron Man
 
 - update webcam.py
