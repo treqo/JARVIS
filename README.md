@@ -14,6 +14,12 @@ The roadmap for JARVIS will attempt to implement
 
 After cloning the repository, rename the `.example.env` file to `.env` and add the corresponding API keys.
 
+Download project requirements with
+
+```sh
+pip install -r requirements.txt
+```
+
 For now, the working implementation is in the root directory, `main.py`. However, a revamp is currently in development, which would give the user freedom to customize which models they're using, as well as input parameters for each specific model. The reason for this change is because newer, more efficient models are bound to come out in the future, so having the ability to easily implement a newer model would be very beneficial.
 
 ## Config
